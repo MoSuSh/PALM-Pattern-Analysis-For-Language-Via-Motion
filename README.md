@@ -1,5 +1,5 @@
 # PALM: Pattern Analysis For Language Via Motion
-
+[![PALM CI Pipeline](https://github.com/MoSuSh/PALM-Pattern-Analysis-For-Language-Via-Motion/actions/workflows/ci.yml/badge.svg)](https://github.com/MoSuSh/PALM-Pattern-Analysis-For-Language-Via-Motion/actions/workflows/ci.yml)
 [![Python 3.10](https://img.shields.io/badge/Python-3.10-blue.svg)](https://www.python.org/)
 [![TensorFlow 2.x](https://img.shields.io/badge/TensorFlow-2.x-orange.svg)](https://tensorflow.org)
 [![OpenCV](https://img.shields.io/badge/OpenCV-4.8+-green.svg)](https://opencv.org/)
