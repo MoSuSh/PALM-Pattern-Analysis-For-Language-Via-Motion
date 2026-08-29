@@ -1,3 +1,7 @@
 *.joblib
 *.keras
 *.npy
+
+__pycache__/
+*.pyc
+
