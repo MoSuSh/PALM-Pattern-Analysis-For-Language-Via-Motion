@@ -35,7 +35,7 @@ PALM is an edge-implemented dynamic gesture recognition and natural language syn
 | **Throughput** | 30 FPS (Webcam) / 24 FPS (ESP32-CAM) | 1080p @ 30Hz video stream |
 | **Model Accuracy** | 98.4% (Top-1 Categorical) | 19 Gesture Classes |
 | **Memory Footprint** | ~280 MB RAM | Operational runtime |
-| **Feature Tensor** | 126 floats / frame ($15 \times 126$ input window) | Dual hand tracking ($21 \times 3 \times 2$) |
+| **Feature Tensor** | 126 floats / frame (15 x 126 input window) | Dual hand tracking (21 x 3 x 2) |
 
 ---
 
@@ -71,15 +71,15 @@ PALM is an edge-implemented dynamic gesture recognition and natural language syn
 ## Engineering Trade-Offs
 
 * **1D CNN vs. Random Forest Classifier**
-  * *Decision*: Selected a 2-layer 1D CNN over the initial Random Forest Clasifier.
-  * *Rationale*: Operating on flattened frame vectors over a fixed 15-frame buffer ($15 \times 126$) via 1D convolutions reduces per-frame inference latency to ~12ms whilst boosting accuracy over wider gesture sets.
+  * *Decision*: Selected a 2-layer 1D CNN over the initial Random Forest Classifier.
+  * *Rationale*: Operating on flattened frame vectors over a fixed 15-frame buffer (15 x 126) via 1D convolutions reduces per-frame inference latency to ~12ms whilst boosting accuracy over wider gesture sets.
 
 * **3D Landmark Coordinates vs. Raw Pixel Inputs**
-  * *Decision*: Extracted normalized 3D hand coordinates ($X, Y, Z$) prior to classification instead of passing raw RGB frames into 2D/3D CNNs.
-  * *Rationale*: Compresses raw frame input from $224 \times 224 \times 3$ ($150,528$ features) down to $126$ floating-point values per frame. This removes input sensitivity to lighting variations, background noise, and skin tone differences while minimizing CPU utilization.
+  * *Decision*: Extracted normalized 3D hand coordinates (X, Y, Z) prior to classification instead of passing raw RGB frames into 2D/3D CNNs.
+  * *Rationale*: Compresses raw frame input from 224 x 224 x 3 (150,528 features) down to 126 floating-point values per frame. This removes input sensitivity to lighting variations, background noise, and skin tone differences while minimizing CPU utilization.
 
 * **Softmax Temperature Scaling & Test-Time Augmentation**
-  * *Decision*: Applied Test-Time Augmentation ($N=2$ noise variations) combined with Softmax Temperature Scaling ($T=1.1$).
+  * *Decision*: Applied Test-Time Augmentation (N=2 noise variations) combined with Softmax Temperature Scaling (T=1.1).
   * *Rationale*: Dynamic gesture execution introduces micro-jitters during transitions. TTA and temperature scaling smooth raw logit outputs, preventing rapid class toggling at boundary frames without adding artificial frame-delay buffers.
 
 ---
@@ -89,7 +89,7 @@ PALM is an edge-implemented dynamic gesture recognition and natural language syn
 ```text
 PALM-Pattern-Analysis-For-Language-Via-Motion/
 ├── assets/
-│   └── demo.jpeg              # Visual demo animation for README
+│   └── demo.jpeg              # Visual demo image for README
 ├── audio_wav/                # Local cache directory for generated speech files
 ├── collected_data_npy/       # Recorded 15-frame landmark dataset arrays
 ├── gesture_cnn_model.keras   # Trained 1D CNN model weights
