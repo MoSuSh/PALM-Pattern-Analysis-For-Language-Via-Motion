@@ -162,7 +162,7 @@ pip install -r requirements.txt
   python main_esp32.py
   ```
 ---
-##**Pre-trained weights available under** [Releases](https://github.com/MoSuSh/PALM-Pattern-Analysis-For-Language-Via-Motion/releases) — or run train_cnn_model.py to regenerate.
+**Pre-trained weights available under** [Releases](https://github.com/MoSuSh/PALM-Pattern-Analysis-For-Language-Via-Motion/releases) — or run train_cnn_model.py to regenerate.
 ## License
 
 Distributed under the MIT License. See `LICENSE` for details.
